@@ -48,30 +48,30 @@ router.post('/liked-videos-remove', async (req,res)=>{
     
 })
 
-router.post('/new-playlist', async (req,res)=>{
-  try{
-    const user = await User.findOneAndUpdate({email: req.body.email},{ 
-      $addToSet:{ playList: {name: req.body.name,list:[] } } })
-   res.status(200).send("Added");
-  }
-  catch{
-    res.status(400).send("Empty")
-  }
+// router.post('/new-playlist', async (req,res)=>{
+//   try{
+//     const user = await User.findOneAndUpdate({email: req.body.email},{ 
+//       $addToSet:{ playList: {name: req.body.name,list:[] } } })
+//    res.status(200).send("Added");
+//   }
+//   catch{
+//     res.status(400).send("Empty")
+//   }
     
-})
+// })
 
-router.get('/playlist/:email', async (req,res)=>{
+// router.get('/playlist/:email', async (req,res)=>{
  
-  try{
-    const user = await User.findOne({email: req.params.email})
-    console.log(user)
-    res.status(200).send(user.playList);
-  }
-  catch{
-    res.status(400).send("Empty")
-  }
+//   try{
+//     const user = await User.findOne({email: req.params.email})
+//     console.log(user)
+//     res.status(200).send(user.playList);
+//   }
+//   catch{
+//     res.status(400).send("Empty")
+//   }
     
-})
+// })
 
 
 module.exports = router;
